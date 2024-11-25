@@ -8,7 +8,12 @@ class Mysql
     }
 }
 
-class Adapter
+interface AdapterInterface
+{
+    public function getData();
+}
+
+class Adapter implements AdapterInterface
 {
     private $mysql;
     public function __construct(Mysql $mysql)
@@ -27,7 +32,7 @@ class Controller
 {
     private $adapter;
 
-    public function __construct(Adapter $adapter)
+    public function __construct(AdapterInterface $adapter)
     {
         $this->adapter = $adapter;
     }
