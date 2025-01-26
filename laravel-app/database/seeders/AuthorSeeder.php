@@ -2,19 +2,16 @@
 
 namespace Database\Seeders;
 
+use App\Models\Author;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class AuthorSeeder extends Seeder
 {
     /**
      * Seed the application's database.
      */
     public function run(): void
     {
-        $this->call([
-            AuthorSeeder::class,
-            PostSeeder::class,
-            CommentSeeder::class,
-        ]);
+        Author::factory(10)->create();
     }
 }
