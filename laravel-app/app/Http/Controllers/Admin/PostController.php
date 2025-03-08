@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     public function index(): View
     {
-        $posts = Post::all();
+        $posts = Post::with('author')->get();
 
         return view('admin.post.list', ['posts' => $posts]);
     }

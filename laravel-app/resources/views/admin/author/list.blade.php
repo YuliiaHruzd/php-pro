@@ -4,14 +4,14 @@
     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Posts</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data Authors</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6">
-                                <a href="post/create" class="text-primary"> Create Post</a>
+                                <a href="authors/create" class="text-primary"> Create Author</a>
                             </div>
                         </div>
                         <div class="row">
@@ -33,11 +33,11 @@
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
-                                            style="width: 343px;">Text
+                                            style="width: 343px;">Email
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1" aria-label="Office: activate to sort column ascending"
-                                            style="width: 166px;">Author Id
+                                            style="width: 166px;">Avatar
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1" aria-label="Age: activate to sort column ascending"
@@ -52,16 +52,16 @@
 
                                     <tbody>
 
-                                    @foreach ($posts as $post)
+                                    @foreach ($authors as $author)
                                         <tr class="odd">
-                                            <td class="sorting_1">{{$post->id}}</td>
-                                            <td >{{$post->name}}</td>
-                                            <td>{{$post->text}}</td>
-                                            <td>{{$post->author->name ?? $post->author_id}}</td>
-                                            <td>{{$post->created_at}}</td>
+                                            <td class="sorting_1">{{$author->id}}</td>
+                                            <td>{{$author->name}}</td>
+                                            <td>{{$author->emaill}}</td>
+                                            <td><img src="{{$author->avatar}}" alt="{{$author->avatar}}"> </td>
+                                            <td>{{$author->created_at}}</td>
                                             <td>
-                                                <a href="post/update/{{$post->id}}">update</a>
-                                                <br><a href="post/delete/{{$post->id}}">delete</a>
+                                                <a href="authors/update/{{$author->id}}">update</a>
+                                                <br><a href="authors/delete/{{$author->id}}">delete</a>
                                             </td>
                                     @endforeach
 
