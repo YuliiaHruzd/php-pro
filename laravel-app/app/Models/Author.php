@@ -20,6 +20,7 @@ class Author extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
     ];
 
     /**
