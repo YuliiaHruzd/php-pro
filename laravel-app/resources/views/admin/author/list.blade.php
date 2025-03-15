@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.dashboard-admin')
 
 @section('content')
     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -57,7 +57,7 @@
                                             <td class="sorting_1">{{$author->id}}</td>
                                             <td>{{$author->name}}</td>
                                             <td>{{$author->emaill}}</td>
-                                            <td><img src="{{$author->avatar}}" alt="{{$author->avatar}}"> </td>
+                                            <td><img src="{{$author->avatar}}" alt="{{$author->avatar}}"></td>
                                             <td>{{$author->created_at}}</td>
                                             <td>
                                                 <a href="authors/update/{{$author->id}}">update</a>

@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.dashboard-admin')
 
 @section('content')
     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -55,7 +55,7 @@
                                     @foreach ($posts as $post)
                                         <tr class="odd">
                                             <td class="sorting_1">{{$post->id}}</td>
-                                            <td >{{$post->name}}</td>
+                                            <td>{{$post->name}}</td>
                                             <td>{{$post->text}}</td>
                                             <td>{{$post->author->name ?? $post->author_id}}</td>
                                             <td>{{$post->created_at}}</td>
