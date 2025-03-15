@@ -13,28 +13,22 @@
             <div class="form-group row">
                 <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" name="name" class="form-control form-control-sm" id="colFormLabelSm"
-                           placeholder="col-form-label-sm">
+                    <input readonly type="text" value="{{$post->name}}" name="name" class="form-control form-control-sm"
+                           id="colFormLabelSm" placeholder="col-form-label-sm">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Text</label>
                 <div class="col-sm-10">
-                    <input type="text" name="text" class="form-control form-control-sm" id="colFormLabelSm"
-                           placeholder="col-form-label-sm">
+                    <input type="text" readonly value="{{$post->text}}" name="text" class="form-control form-control-sm"
+                           id="colFormLabelSm" placeholder="col-form-label-sm">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Author Id</label>
                 <div class="col-sm-10">
-                    <input type="text" name="author_id" class="form-control form-control-sm" id="colFormLabelSm"
-                           placeholder="col-form-label-sm">
-                </div>
-            </div>
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-            <div class="form-group row">
-                <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <input type="text" readonly value="{{$post->author_id}}" name="author_id"
+                           class="form-control form-control-sm" id="colFormLabelSm" placeholder="col-form-label-sm">
                 </div>
             </div>
         </form>
