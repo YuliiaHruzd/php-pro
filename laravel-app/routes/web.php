@@ -13,6 +13,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\WishListController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/admin', function () {
@@ -71,6 +72,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('cart/delete/{id}', [CartController::class, 'delete']);
     Route::get('cart/update/{id}', [CartController::class, 'updateView']);
     Route::post('cart/update/{id}', [CartController::class, 'update']);
+
+    Route::get('wish-list', [WishListController::class, 'index']);
+    Route::get('wish-list/create/{postId}', [WishListController::class, 'create']);
+    Route::get('wish-list/delete/{id}', [WishListController::class, 'delete']);
 
     Route::prefix('api/v1')->group(function () {
         Route::get('/posts', [ApiV1PostController::class, 'index']);
