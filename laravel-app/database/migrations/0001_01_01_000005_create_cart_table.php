@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('cart', function (Blueprint $table) {
             $table->id();
             $table->integer('post_id');
+            $table->integer('user_id')->default(1);
             $table->integer('count')->default(1);
             $table->timestamps();
         });
