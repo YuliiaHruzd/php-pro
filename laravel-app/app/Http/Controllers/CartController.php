@@ -46,4 +46,11 @@ class CartController extends Controller
 
         return view('cart.update', ['item' => $item]);
     }
+
+    public function checkout(): View
+    {
+        $countItems = Cart::all()->count();
+
+        return view('cart.checkout', ['countItems' => $countItems]);
+    }
 }
