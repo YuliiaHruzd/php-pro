@@ -72,6 +72,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('cart/delete/{id}', [CartController::class, 'delete']);
     Route::get('cart/update/{id}', [CartController::class, 'updateView']);
     Route::post('cart/update/{id}', [CartController::class, 'update']);
+    Route::get('cart/checkout', [CartController::class, 'checkout']);
 
     Route::get('wish-list', [WishListController::class, 'index']);
     Route::get('wish-list/create/{postId}', [WishListController::class, 'create']);

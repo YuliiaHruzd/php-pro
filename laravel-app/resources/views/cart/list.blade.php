@@ -49,6 +49,7 @@
 
                                     </tbody>
                                 </table>
+                                <a href="cart/checkout">Checkout</a><br>
                             </div>
                         </div>
                     </div>
