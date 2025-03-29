@@ -81,8 +81,11 @@
 
         // Call your server to set up the transaction
         createOrder: function(data, actions) {
-            return fetch('/demo/checkout/api/paypal/order/create/', {
+            return fetch('paypal/order/create/', {
                 method: 'post',
+                headers: new Headers({
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }),
             }).then(function(res) {
                 return res.json();
             }).then(function(orderData) {
@@ -92,8 +95,11 @@
 
         // Call your server to finalize the transaction
         onApprove: function(data, actions) {
-            return fetch('/demo/checkout/api/paypal/order/' + data.orderID + '/capture/', {
-                method: 'post'
+            return fetch('paypal/order/' + data.orderID + '/capture/', {
+                method: 'post',
+                headers: new Headers({
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }),
             }).then(function(res) {
                 return res.json();
             }).then(function(orderData) {

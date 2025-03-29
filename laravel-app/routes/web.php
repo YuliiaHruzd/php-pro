@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\V1\AuthorController as ApiV1AuthorController;
 use App\Http\Controllers\Api\V2\PostController as ApiV2PostController;
 use App\Http\Controllers\Api\V2\AuthorController as ApiV2AuthorController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CartController;
@@ -62,7 +63,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('main');
 
     Route::get('posts', [PostController::class, 'index']);
-    Route::get('posts/view/{id}', [PostController::class, 'view']);
+    Route::get('posts/view/{id}', [PostController::class, 'view'])->name('post.show');
 
     Route::get('authors', [AuthorController::class, 'index']);
     Route::get('authors{id}', [AuthorController::class, 'view']);
@@ -73,6 +74,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('cart/update/{id}', [CartController::class, 'updateView']);
     Route::post('cart/update/{id}', [CartController::class, 'update']);
     Route::get('cart/checkout', [CartController::class, 'checkout']);
+
+    Route::post('cart/paypal/order/create', [OrderController::class, 'create']);
+    Route::post('cart/paypal/order{orderId}/capture/', [OrderController::class, 'capture']);
 
     Route::get('wish-list', [WishListController::class, 'index']);
     Route::get('wish-list/create/{postId}', [WishListController::class, 'create']);
