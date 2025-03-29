@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Collection;
 
 class Cart extends Model
 {
@@ -26,5 +27,10 @@ class Cart extends Model
     public function post(): BelongsTo
     {
         return $this->belongsTo(Post::class);
+    }
+
+    public function getItems(int $userId): Collection
+    {
+        return self::with('post')->where('user_id', $userId)->get();
     }
 }
