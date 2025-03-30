@@ -9,7 +9,7 @@ class Router
 {
     public function init($routes)
     {
-        $requestUri =  substr($_SERVER["REQUEST_URI"], 1);
+        $requestUri =  substr($_SERVER["PATH_INFO"], 1);
         $part = explode("/", $requestUri);
         $array = preg_replace('/(\d+)/i', ':d', $requestUri);
         $parameters = array_filter($part, function($v, $k) {

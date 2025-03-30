@@ -19,6 +19,8 @@ class Route
             'note/update/from/:d/to/:d' => ['className' => 'Note', 'action' => 'update', 'method' => 'GET'],
             'note/show/:d' => ['className' => 'Note', 'action' => 'show', 'method' => 'GET'],
             'note/delete/:d' => ['className' => 'Note', 'action' => 'delete', 'method' => 'GET'],
+            'login' => ['className' => 'Auth', 'action' => 'login', 'method' => 'GET'],
+            'register' => ['className' => 'Auth', 'action' => 'register', 'method' => 'GET'],
             '' => ['className' => 'Main', 'action' => 'index', 'method' => 'GET'],
             'default' => ['className' => 'Error', 'action' => 'index'],
         ];
