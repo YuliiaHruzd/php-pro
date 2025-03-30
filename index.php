@@ -11,7 +11,9 @@ spl_autoload_register(function ($class) {
     require_once $file;
 });
 
-use Response\Data;
-use Request\Data as Request;
+use Route\Route;
+use Route\Router;
 
-$test = new Request(new Data());
+$route = new Route();
+$router = new Router();
+$router->init($route->getRoutes());
