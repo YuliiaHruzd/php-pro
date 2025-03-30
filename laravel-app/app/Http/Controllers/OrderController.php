@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\OrderProcessed;
 use App\Models\Cart;
 use App\Repositories\OrderRepository;
 use App\Services\InvoiceService;
 use App\Services\PaypalService;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 
 class OrderController extends Controller
 {
@@ -40,6 +42,8 @@ class OrderController extends Controller
         ]);
 
         $this->invoiceService->create($order);
+
+        Event::dispatch(new OrderProcessed($order));
 
         return new Response([]);
     }
