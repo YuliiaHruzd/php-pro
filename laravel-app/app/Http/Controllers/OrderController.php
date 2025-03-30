@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Repositories\OrderRepository;
+use App\Services\InvoiceService;
 use App\Services\PaypalService;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-    public function __construct(private OrderRepository $orderRepository, private PaypalService $paypalService)
+    public function __construct(
+        private OrderRepository $orderRepository,
+        private PaypalService $paypalService,
+        private InvoiceService $invoiceService,
+    )
     {
     }
 
@@ -34,9 +39,9 @@ class OrderController extends Controller
             'subtotal' => $price,
         ]);
 
-        $response = $this->paypalService->create($order, $items);
+        $this->invoiceService->create($order);
 
-        return new Response($response);
+        return new Response([]);
     }
 
     public function capture(int $postId)
@@ -44,5 +49,12 @@ class OrderController extends Controller
         $response = $this->paypalService->capture($postId);
 
         return new Response($response);
+    }
+
+    public function showThankYouPage($orderId)
+    {
+        $url = storage_path() . "/app/private/$orderId.pdf";
+
+        return  view('order.thank-you', compact('url'));
     }
 }
