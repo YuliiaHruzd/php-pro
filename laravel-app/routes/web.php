@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\LoginController ;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\RegisterController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,3 +47,9 @@ Route::get('posts', [PostController::class, 'index']);
 Route::get('posts/view/{id}', [PostController::class, 'view']);
 Route::get('authors', [AuthorController::class, 'index']);
 Route::get('authors{id}', [AuthorController::class, 'view']);
+
+Route::get('cart', [CartController::class, 'index']);
+Route::get('cart/create/{postId}', [CartController::class, 'create']);
+Route::get('cart/delete/{id}', [CartController::class, 'delete']);
+Route::get('cart/update/{id}', [CartController::class, 'updateView']);
+Route::post('cart/update/{id}', [CartController::class, 'update']);

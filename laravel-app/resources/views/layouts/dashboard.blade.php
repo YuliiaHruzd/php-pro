@@ -36,6 +36,7 @@
                                 <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="/" role="tab" aria-controls="v-pills-home" aria-selected="true">Main Page</a>
                                 <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="authors" role="tab" aria-controls="v-pills-home" aria-selected="true">Authors</a>
                                 <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="posts" role="tab" aria-controls="v-pills-home" aria-selected="true">Posts</a>
+                                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="cart" role="tab" aria-controls="v-pills-home" aria-selected="true">Cart</a>
                             </div>
                         </div>
                         <div class="col-15">

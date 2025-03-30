@@ -4,11 +4,13 @@
     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Posts</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Items</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div class="row">
+                        </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <table class="table table-bordered dataTable" id="dataTable" width="100%"
@@ -19,23 +21,29 @@
                                         <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable"
                                             rowspan="1" colspan="1" aria-sort="ascending"
                                             aria-label="Name: activate to sort column descending" style="width: 228px;">
-                                            Name
+                                            Id
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                            colspan="1" aria-label="Start date: activate to sort column ascending"
-                                            style="width: 158px;">Actions
+                                            colspan="1" aria-label="Position: activate to sort column ascending"
+                                            style="width: 343px;">Posts
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Position: activate to sort column ascending"
+                                            style="width: 343px;">Count
                                         </th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
 
-                                    @foreach ($posts as $post)
+                                    @foreach ($items as $item)
                                         <tr class="odd">
-                                            <td>{{$post->name}}</td>
+                                            <td>{{$item->id}}</td>
+                                            <td>{{$item->post->name}}</td>
+                                            <td>{{$item->count}}</td>
                                             <td>
-                                                <a href="posts/view/{{$post->id}}">view</a><br>
-                                                <a href="cart/create/{{$post->id}}">add to cart</a>
+                                                <a href="cart/delete/{{$item->id}}">delete</a><br>
+                                                <a href="cart/update/{{$item->id}}">update</a><br>
                                             </td>
                                     @endforeach
 
